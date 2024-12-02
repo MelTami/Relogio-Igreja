@@ -1,0 +1,23 @@
+.video {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden; /* Impede overflow na área de vídeo */
+}
+
+.video-container {
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+video {
+  width: 100%;
+  display: none;
+}
+
+video.active {
+  display: block;
+}
