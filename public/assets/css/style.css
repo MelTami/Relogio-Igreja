@@ -1,0 +1,209 @@
+:root {
+    --color-dark: #000;
+    --color-white: #fff;
+    --color-light: #ababab;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    color: var(--color-white);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../images/347307.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    overflow: hidden; /* Impede o overflow na página */
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* Garantir que a altura ocupe 100% da tela */
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 20px;
+    align-items: flex-start; /* Certificar que as seções estejam alinhadas no topo */
+    box-sizing: border-box;
+    overflow: hidden; /* Impede o overflow no container */
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    width: 50%; /* 50% da largura para cada seção */
+    height: 100%; /* Garantir que ocupe toda a altura */
+    overflow: hidden; /* Impede qualquer overflow na seção */
+}
+
+.divisoria {
+    height: 100%;
+    width: 2px;
+    background-color: white;
+    margin: 0 20px;
+}
+
+.infos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.date-weather {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+    align-items: center;
+}
+
+.clock {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 30px;
+    padding: 25px;
+    width: 100%;
+    overflow: hidden; /* Impede qualquer overflow na clock */
+}
+
+.clock span {
+    color: var(--color-white);
+    font-size: 170px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.clock span:not(:last-child)::after {
+    content: ':'; 
+    color: var(--color-light);
+}
+
+.date {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 30px;
+    padding: 30px;
+    width: 100%;
+    overflow: hidden; /* Impede qualquer overflow na date */
+}
+
+.date span {
+    color: var(--color-white);
+    font-size: 80px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.date span:not(:last-child)::after {
+    content: '/';
+    color: var(--color-light);
+}
+
+@media screen and (min-width: 2000px) {
+    .clock span {
+        font-size: 120px; /* Tamanho maior para telas 4K */
+    }
+
+    .date span {
+        font-size: 100px; /* Tamanho maior para telas 4K */
+    }
+
+    .schedule h1 {
+        font-size: 70px; /* Título maior para telas 4K */
+    }
+
+    .events {
+        font-size: 40px; /* Maior para melhorar a leitura */
+    }
+
+    .section {
+        gap: 40px; /* Maior espaçamento entre as seções */
+    }
+
+    .schedule {
+        max-width: 700px; /* Um pouco mais largo para melhorar o layout */
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .clock span {
+        font-size: 60px;
+    }
+
+    .date span {
+        font-size: 60px;
+    }
+
+    .section {
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section {
+        width: 100%; /* As seções ocupam 100% da largura na tela pequena */
+        max-width: none;
+    }
+
+    .clock {
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .date {
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .clock span {
+        font-size: 50px;
+    }
+
+    .date span {
+        font-size: 50px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .clock span {
+        font-size: 40px;
+    }
+
+    .date span {
+        font-size: 40px;
+    }
+
+    .schedule h1 {
+        font-size: 30px;
+    }
+
+    .events {
+        font-size: 20px;
+    }
+}

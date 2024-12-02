@@ -1,0 +1,25 @@
+.weather-container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0, 0.6);
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.weather-container img {
+  width: 100px;
+  height: 100px;
+}
+
+.weather-container h2 {
+  margin: 10px 0;
+  font-size: 50px;
+  font-weight: 400;
+}
+
+.weather-container p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
