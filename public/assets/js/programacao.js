@@ -51,7 +51,7 @@ async function fetchEvents() {
 
 // Função para exibir eventos
 async function displayEvents() {
-  const eventList = document.getElementById("event-list");
+  const eventGrid = document.getElementById("event-grid");
   const events = await fetchEvents();
 
   // Obtém a data atual no início do dia
@@ -62,21 +62,19 @@ async function displayEvents() {
   const filteredEvents = events
     .filter(event => {
       const eventDate = new Date(event.date);
-      eventDate.setHours(0, 0, 0, 0); // Remove as horas da data do evento para comparação
-      return !isNaN(eventDate) && eventDate >= now; // Exclui eventos passados
+      eventDate.setHours(0, 0, 0, 0);
+      return !isNaN(eventDate) && eventDate >= now;
     })
-    .sort((a, b) => new Date(a.date) - new Date(b.date)) // Ordena por data
-    .slice(0, 3); // Limita a 3 eventos
+    .sort((a, b) => new Date(a.date) - new Date(b.date))
+    .slice(0, 6); // Pegando apenas 6 eventos
 
-  // Limpa a lista de eventos exibida anteriormente
-  eventList.innerHTML = "";
+  eventGrid.innerHTML = "";
 
   if (filteredEvents.length === 0) {
     document.getElementById("error-message").textContent = "Nenhum evento encontrado.";
     return;
   }
 
-  // Exibe os eventos
   filteredEvents.forEach(event => {
     const eventElement = document.createElement("div");
     eventElement.className = "event";
@@ -85,9 +83,10 @@ async function displayEvents() {
       <p><strong>Data:</strong> ${formatDateToBR(event.date)}</p>
       <p><strong>Horário:</strong> ${event.time}</p>
     `;
-    eventList.appendChild(eventElement);
+    eventGrid.appendChild(eventElement);
   });
 }
+
 
 // Executa a função ao carregar a página
 displayEvents();
